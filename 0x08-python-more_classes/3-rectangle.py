@@ -8,8 +8,8 @@ class Rectangle:
     """Representation of a rectangle"""
     def __init__(self, width=0, height=0):
         """Initializes the rectangle"""
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -23,11 +23,11 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.width__ = value
-    
+        self.__width = value
+
     @property
     def height(self):
-        """getter  for the private instance attribute height"""
+        """getter for the private instance attribute height"""
         return self.__height
 
     @height.setter
@@ -38,7 +38,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
+    
     def area(self):
         """returns the area of the rectangle"""
         return self.__width * self.__height
@@ -55,4 +55,4 @@ class Rectangle:
         if self.__width != 0 and self.__height != 0:
             string += "\n".join("#" * self.__width
                                 for j in range(self.__height))
-            return string
+        return string
