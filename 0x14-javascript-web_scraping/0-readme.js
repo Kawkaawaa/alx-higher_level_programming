@@ -1,14 +1,10 @@
-
 #!/usr/bin/node
-// Read from file
-
-const filesys = require('fs');
-filesys.readFile(process.argv[2], 'utf-8',
-  function (err, data) {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log(data);
-  });
+const fs = require('fs');
+const file = process.argv[2];
+try {
+  const data = fs.readFileSync(file, 'utf8');
+  console.log(data);
+} catch (err) {
+  console.error(err);
+}
 
